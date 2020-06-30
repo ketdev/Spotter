@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import ChatboxEllipses from "../../assets/chatbox-ellipses-outline.svg";
+import IconChatboxEllipsesOutline from "../svgs/ChatboxEllipsesOutline";
 
 export default function Ranking() {
 	return (
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 			<Text style={styles.text}>Ranking!</Text>
-			<ChatboxEllipses width='40' height='40' color='white'/>
+			<IconChatboxEllipsesOutline width='40' height='40' color='white'/>
 		</View>
 	);
 }

@@ -3,16 +3,16 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Load SVG icons
-import IconBarbell from "../assets/barbell.svg";
-import IconBarbellOutline from "../assets/barbell-outline.svg";
-import IconSearch from "../assets/search.svg";
-import IconSearchOutline from "../assets/search-outline.svg";
-import IconTrophy from "../assets/trophy.svg";
-import IconTrophyOutline from "../assets/trophy-outline.svg";
-import IconNotifications from "../assets/notifications.svg";
-import IconNotificationsOutline from "../assets/notifications-outline.svg";
-import IconChatboxEllipses from "../assets/chatbox-ellipses.svg";
-import IconChatboxEllipsesOutline from "../assets/chatbox-ellipses-outline.svg";
+import IconBarbell from "./svgs/Barbell";
+import IconBarbellOutline from "./svgs/BarbellOutline";
+import IconSearch from "./svgs/Search";
+import IconSearchOutline from "./svgs/SearchOutline";
+import IconTrophy from "./svgs/Trophy";
+import IconTrophyOutline from "./svgs/TrophyOutline";
+import IconNotifications from "./svgs/Notifications";
+import IconNotificationsOutline from "./svgs/NotificationsOutline";
+import IconChatboxEllipses from "./svgs/ChatboxEllipses";
+import IconChatboxEllipsesOutline from "./svgs/ChatboxEllipsesOutline";
 
 // common utils
 import IconWithBadge from './common/IconWithBadge';

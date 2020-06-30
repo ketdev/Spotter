@@ -7,7 +7,7 @@ export const NavigatorTheme = {
 		primary: '#BB86FC',
 		background: '#121212',
 		card: '#000000',
-		text: white,
+		text: 'white',
 		border: '#303030',
 	},
 };

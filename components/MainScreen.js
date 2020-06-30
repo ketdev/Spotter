@@ -3,16 +3,16 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Load SVG icons
-import IconBarbell from "./svgs/Barbell";
-import IconBarbellOutline from "./svgs/BarbellOutline";
-import IconSearch from "./svgs/Search";
-import IconSearchOutline from "./svgs/SearchOutline";
-import IconTrophy from "./svgs/Trophy";
-import IconTrophyOutline from "./svgs/TrophyOutline";
-import IconNotifications from "./svgs/Notifications";
-import IconNotificationsOutline from "./svgs/NotificationsOutline";
-import IconChatboxEllipses from "./svgs/ChatboxEllipses";
-import IconChatboxEllipsesOutline from "./svgs/ChatboxEllipsesOutline";
+import IconBarbell from "../assets/barbell.svg";
+import IconBarbellOutline from "../assets/barbell-outline.svg";
+import IconSearch from "../assets/search.svg";
+import IconSearchOutline from "../assets/search-outline.svg";
+import IconTrophy from "../assets/trophy.svg";
+import IconTrophyOutline from "../assets/trophy-outline.svg";
+import IconNotifications from "../assets/notifications.svg";
+import IconNotificationsOutline from "../assets/notifications-outline.svg";
+import IconChatboxEllipses from "../assets/chatbox-ellipses.svg";
+import IconChatboxEllipsesOutline from "../assets/chatbox-ellipses-outline.svg";
 
 // common utils
 import IconWithBadge from './common/IconWithBadge';
@@ -32,16 +32,13 @@ const RANKING_TAG = 'Rankings';
 const NOTIFICATION_TAG = 'Notifications';
 const MESSAGE_TAG = 'Messages';
 
-// Theme Constants
-const STATUS_BG_COLOR = '#fff'; // '#6a51ae'
-
 // Create tab navigator
 const Tab = createBottomTabNavigator();
 
 export default function MainScreen({ navigation, route }) {
 	return (
     <>
-    <FocusAwareStatusBar barStyle='light-content' backgroundColor={STATUS_BG_COLOR} />
+    <FocusAwareStatusBar barStyle='light-content' backgroundColor='#000' />
 		<Tab.Navigator
         initialRouteName={RANKING_TAG}
         screenOptions={({ route }) => ({

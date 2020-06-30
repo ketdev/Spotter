@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import IconChatboxEllipsesOutline from "../svgs/ChatboxEllipsesOutline";
+import IconChatboxEllipsesOutline from "../../assets/chatbox-ellipses-outline.svg";
 
 export default function Ranking() {
 	return (

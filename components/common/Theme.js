@@ -1,12 +1,21 @@
+import {DarkTheme} from 'react-native-paper';
 
-// Customize nagivator theme
+// Customize Nagivator Theme
 export const NavigatorTheme = {
-	dark: false,
+	dark: true,
 	colors: {
-		primary: 'rgb(255, 45, 85)',
-		background: 'rgb(242, 242, 242)',
-		card: 'rgb(255, 255, 255)',
-		text: 'rgb(28, 28, 30)',
-		border: 'rgb(199, 199, 204)',
+		primary: '#BB86FC',
+		background: '#121212',
+		card: '#000000',
+		text: white,
+		border: '#303030',
 	},
+};
+
+// Customize Paper Theme
+export const PaperTheme = {
+    ...DarkTheme,
+    colors: {
+      ...DarkTheme.colors,
+    }
 };

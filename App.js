@@ -94,9 +94,10 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Provider as PaperProvider} from 'react-native-paper';
 
 // customization
-import {NavigatorTheme} from './components/common/Theme';
+import {PaperTheme, NavigatorTheme} from './components/common/Theme';
 
 // import our screens
 import SplashScreen from './components/SplashScreen';
@@ -117,7 +118,8 @@ export default function App() {
     return <SplashScreen />;
   }
 
-  return (    
+  return (
+	<PaperProvider theme={PaperTheme}>
 	<NavigationContainer theme={NavigatorTheme}>
 		<Stack.Navigator headerMode='none'>
 		{state.userToken == null ? (
@@ -127,5 +129,6 @@ export default function App() {
 		)}
 		</Stack.Navigator>
 	</NavigationContainer>
+	</PaperProvider>
 	);	
 }

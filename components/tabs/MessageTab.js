@@ -14,7 +14,7 @@ const DETAILS_NAVIGATION_TAG = 'Details';
 
 const Stack = createStackNavigator();
 
-export default function Message() {
+export default function Message({ navigation, route }) {
 	return (
 		<Stack.Navigator headerMode='screen'>
 			<Stack.Screen name={HOME_NAVIGATION_TAG} component={HomeScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
@@ -33,6 +33,19 @@ function LogoTitle() {
 }
 
 function HomeScreen({ navigation, route }) {
+	const [count, setCount] = React.useState(0);
+
+	React.useLayoutEffect(() => {
+		navigation.setOptions({
+			headerRight: () => (
+				<Button onPress={() => setCount(c => c + 1)} title="Right" />
+			),
+			headerLeft: () => (
+				<Button onPress={() => setCount(c => c + 1)} title="Left" />
+			),
+		});
+	}, [navigation]);
+	
 	React.useEffect(() => {
 		if (route.params?.post) {
 			// Post updated, do something with `route.params.post`

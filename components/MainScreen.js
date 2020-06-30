@@ -2,8 +2,17 @@ import * as React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
-import Ionicons from 'react-native-vector-icons/Ionicons';
+// Load SVG icons
+import IconBarbell from "../assets/barbell.svg";
+import IconBarbellOutline from "../assets/barbell-outline.svg";
+import IconSearch from "../assets/search.svg";
+import IconSearchOutline from "../assets/search-outline.svg";
+import IconTrophy from "../assets/trophy.svg";
+import IconTrophyOutline from "../assets/trophy-outline.svg";
+import IconNotifications from "../assets/notifications.svg";
+import IconNotificationsOutline from "../assets/notifications-outline.svg";
+import IconChatboxEllipses from "../assets/chatbox-ellipses.svg";
+import IconChatboxEllipsesOutline from "../assets/chatbox-ellipses-outline.svg";
 
 // common utils
 import IconWithBadge from './common/IconWithBadge';
@@ -30,22 +39,9 @@ const STATUS_BG_COLOR = '#fff'; // '#6a51ae'
 const Tab = createBottomTabNavigator();
 
 export default function MainScreen({ navigation, route }) {
-	const [count, setCount] = React.useState(0);
-
-	React.useLayoutEffect(() => {
-		navigation.setOptions({
-			headerRight: () => (
-				<Button onPress={() => setCount(c => c + 1)} title="Right" />
-			),
-			headerLeft: () => (
-				<Button onPress={() => setCount(c => c + 1)} title="Left" />
-			),
-		});
-	}, [navigation]);
-
 	return (
     <>
-    <FocusAwareStatusBar barStyle='dark-content' backgroundColor={STATUS_BG_COLOR} />
+    <FocusAwareStatusBar barStyle='light-content' backgroundColor={STATUS_BG_COLOR} />
 		<Tab.Navigator
         initialRouteName={RANKING_TAG}
         screenOptions={({ route }) => ({
@@ -53,20 +49,24 @@ export default function MainScreen({ navigation, route }) {
             let iconName;
             switch (route.name) {
               case WORKOUT_TAG:
-                iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
-                break;
+                if(focused) return <IconBarbell width={size} height={size} color={color}/>;
+                else return <IconBarbellOutline width={size} height={size} color={color}/>;
+                
               case SEARCH_TAG:
-                iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
-                break;            
+                if(focused) return <IconSearch width={size} height={size} color={color}/>;
+                else return <IconSearchOutline width={size} height={size} color={color}/>;
+                
               case RANKING_TAG:
-                iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
-                break;                
+                if(focused) return <IconTrophy width={size} height={size} color={color}/>;
+                else return <IconTrophyOutline width={size} height={size} color={color}/>;
+                
               case NOTIFICATION_TAG:
-                iconName = focused ? 'ios-notifications' : 'ios-notifications-outline';
-                break;
+                if(focused) return <IconNotifications width={size} height={size} color={color}/>;
+                else return <IconNotificationsOutline width={size} height={size} color={color}/>;
+
               case MESSAGE_TAG:
-                iconName = focused ? 'ios-chatboxes' : 'ios-chatboxes';
-                break;
+                if(focused) return <IconChatboxEllipses width={size} height={size} color={color}/>;
+                else return <IconChatboxEllipsesOutline width={size} height={size} color={color}/>;
             }
 
             // You can return any component that you like here!
@@ -76,7 +76,7 @@ export default function MainScreen({ navigation, route }) {
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
-          //showLabel: false,
+          // showLabel: false,
         }}
       >
 			<Tab.Screen name={WORKOUT_TAG} component={WorkoutTab} />

@@ -1,50 +1,38 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {Provider as PaperProvider} from 'react-native-paper';
+import React from 'react';
 
-// import our screens
-import SplashScreen from './components/SplashScreen';
-import SignInScreen from './components/SignInScreen';
-import MainScreen from './components/MainScreen';
+// Initialize Firebase
+import * as firebase from 'firebase';
+import "firebase/app";
+import "firebase/auth";
+//import "firebase/firestore";
+//import "firebase/functions";
+//import "firebase/database";
 
-// create toplevel navigation stack
-const Stack = createStackNavigator();
-
-// Customize Nagivator Theme
-export const NavigatorTheme = {
-	dark: true,
-	colors: {
-		primary: '#BB86FC',
-		background: '#121212',
-		card: '#000000',
-		text: 'white',
-		border: '#303030',
-	},
+const firebaseConfig = {
+	apiKey: "AIzaSyCsIkd9TYhsaAj9ki1xLH1qvCvSNPxmMxQ",
+	authDomain: "spotter-9c84a.firebaseapp.com",
+	databaseURL: "https://spotter-9c84a.firebaseio.com",
+	projectId: "spotter-9c84a",
+	storageBucket: "spotter-9c84a.appspot.com",
+	messagingSenderId: "313612064611",
+	appId: "1:313612064611:web:ffdb54862ff40768962556",
+	measurementId: "G-FZP2QSN3GD"
 };
+var defaultProject = firebase.apps.length > 0 ?
+	firebase.app() : firebase.initializeApp(firebaseConfig);
 
-export default function App() {
-  // local state
-  const state = {
-	  isLoading: false,
-	  userToken: 1,
-  };
+// Import Providers and start routes
+import { Provider as PaperProvider } from 'react-native-paper';
+import { PaperTheme } from './Theme';
+import { AuthProvider } from './components/auth/AuthProvider';	
+import Routes from './components/Routes';
 
-  if (state.isLoading) {
-    return <SplashScreen />;
-  }
-
-  return (
-	<PaperProvider>
-	<NavigationContainer theme={NavigatorTheme}>
-		<Stack.Navigator headerMode='none'>
-		{state.userToken == null ? (
-			<Stack.Screen name='SignIn' component={SignInScreen}/>
-		) : (          
-			<Stack.Screen name='Main' component={MainScreen} />
-		)}
-		</Stack.Navigator>
-	</NavigationContainer>
-	</PaperProvider>
-	);	
+export default function App() {	
+	return (
+		<PaperProvider theme={PaperTheme}>
+			<AuthProvider>
+				<Routes />
+			</AuthProvider>
+		</PaperProvider>
+	);
 }

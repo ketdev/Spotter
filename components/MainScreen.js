@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Load SVG icons
@@ -14,7 +13,7 @@ import IconNotificationsOutline from "../assets/notifications-outline.svg";
 import IconChatboxEllipses from "../assets/chatbox-ellipses.svg";
 import IconChatboxEllipsesOutline from "../assets/chatbox-ellipses-outline.svg";
 
-// common utils
+// Common utils
 import IconWithBadge from './common/IconWithBadge';
 import FocusAwareStatusBar from './common/FocusWareStatusBar';
 

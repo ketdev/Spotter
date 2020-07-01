@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
+import { COLOR_TEXT } from '../Theme';
+
 export default function LoadingScreen() {
 	return (
 		<View style={styles.loadingContainer}>
-			<ActivityIndicator size='large' color='#6646ee' />
+			<ActivityIndicator size='large' color={COLOR_TEXT} />
 		</View>
 	);
 }

@@ -24,8 +24,7 @@ export function AuthProvider({ children }) {
 						console.error(e);
 					}
 				}
-			}}
-		>
+			}} >
 			{children}
 		</AuthContext.Provider>
 	);

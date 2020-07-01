@@ -1,5 +1,10 @@
-import * as React from 'react';
+import * as React from 'react'; 
+import { StatusBar } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+// Load theme colors
+import {COLOR_INACTIVE, COLOR_PRIMARY} from '../Theme';
 
 // Load SVG icons
 import IconBarbell from "../assets/barbell.svg";
@@ -13,16 +18,13 @@ import IconNotificationsOutline from "../assets/notifications-outline.svg";
 import IconChatboxEllipses from "../assets/chatbox-ellipses.svg";
 import IconChatboxEllipsesOutline from "../assets/chatbox-ellipses-outline.svg";
 
-// Common utils
-import IconWithBadge from './common/IconWithBadge';
-import FocusAwareStatusBar from './common/FocusWareStatusBar';
-
 // Import our tab components
-import WorkoutTab from './tabs/WorkoutTab';
-import SearchTab from './tabs/SearchTab';
-import RankingTab from './tabs/RankingTab';
-import NotificationTab from './tabs/NotificationTab';
-import MessageTab from './tabs/MessageTab';
+import WorkoutTab from '../components/tabs/WorkoutTab';
+import SearchTab from '../components/tabs/SearchTab';
+import RankingTab from '../components/tabs/RankingTab';
+import NotificationTab from '../components/tabs/NotificationTab';
+
+import MessengerStack from './MessengerStack';
 
 // Tag names for navigator
 const WORKOUT_TAG = 'Workouts';
@@ -30,11 +32,16 @@ const SEARCH_TAG = 'Search';
 const RANKING_TAG = 'Rankings';
 const NOTIFICATION_TAG = 'Notifications';
 const MESSAGE_TAG = 'Messages';
+ 
+function FocusAwareStatusBar(props) {
+    const isFocused = useIsFocused();
+    return isFocused ? < StatusBar {...props} /> : null;
+  }
 
 // Create tab navigator
 const Tab = createBottomTabNavigator();
 
-export default function MainScreen({ navigation, route }) {
+export default function MainTabs({ navigation, route }) {
 	return (
     <>
     <FocusAwareStatusBar barStyle='light-content' backgroundColor='#000' />
@@ -42,7 +49,6 @@ export default function MainScreen({ navigation, route }) {
         initialRouteName={RANKING_TAG}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
             switch (route.name) {
               case WORKOUT_TAG:
                 if(focused) return <IconBarbell width={size} height={size} color={color}/>;
@@ -64,14 +70,11 @@ export default function MainScreen({ navigation, route }) {
                 if(focused) return <IconChatboxEllipses width={size} height={size} color={color}/>;
                 else return <IconChatboxEllipsesOutline width={size} height={size} color={color}/>;
             }
-
-            // You can return any component that you like here!
-						return <IconWithBadge name={iconName} size={size} color={color} badgeCount={0} />;
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
+          activeTintColor: COLOR_PRIMARY,
+          inactiveTintColor: COLOR_INACTIVE,
           // showLabel: false,
         }}
       >
@@ -79,7 +82,7 @@ export default function MainScreen({ navigation, route }) {
 			<Tab.Screen name={SEARCH_TAG} component={SearchTab} />
 			<Tab.Screen name={RANKING_TAG} component={RankingTab} />
 			<Tab.Screen name={NOTIFICATION_TAG} component={NotificationTab} />
-			<Tab.Screen name={MESSAGE_TAG} component={MessageTab} />
+			<Tab.Screen name={MESSAGE_TAG} component={MessengerStack} />
 		</Tab.Navigator>
     </>
 	);

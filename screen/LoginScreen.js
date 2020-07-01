@@ -2,19 +2,19 @@ import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { Title, Subheading } from 'react-native-paper';
 
-import { AuthContext } from './AuthProvider';
+import { AuthContext } from '../provider/AuthProvider';
 import { SIGNUP_NAVTAG } from './SignUpScreen';
-import FormInput from '../common/FormInput';
-import FormButton from '../common/FormButton';
-import SpotterTitle from "../../assets/spotter-title.svg";
+import FormInput from '../components/common/FormInput';
+import FormButton from '../components/common/FormButton';
+import SpotterTitle from "../assets/spotter-title.svg";
 
 
 export const LOGIN_NAVTAG = 'Login';
 
 export default function LoginScreen({ navigation, ...props }) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
+    const [ errorMessage, setErrorMessage ] = useState('');
     const { login } = useContext(AuthContext);
 
     return (

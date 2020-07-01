@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
 import {Appbar, Avatar} from 'react-native-paper';  
-import {AuthContext} from '../auth/AuthProvider';
+import {AuthContext} from '../../provider/AuthProvider';
 
 import {COLOR_TEXT} from '../../Theme';
 import IconMenu from "../../assets/menu.svg";

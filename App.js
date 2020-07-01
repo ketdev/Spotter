@@ -4,7 +4,7 @@ import React from 'react';
 import * as firebase from 'firebase';
 import "firebase/app";
 import "firebase/auth";
-//import "firebase/firestore";
+import "firebase/firestore";
 //import "firebase/functions";
 //import "firebase/database";
 
@@ -23,11 +23,11 @@ var defaultProject = firebase.apps.length > 0 ?
 
 // Import Providers and start routes
 import { Provider as PaperProvider } from 'react-native-paper';
+import { AuthProvider } from './provider/AuthProvider';
 import { PaperTheme } from './Theme';
-import { AuthProvider } from './components/auth/AuthProvider';	
-import Routes from './components/Routes';
+import Routes from './navigation/Routes';
 
-export default function App() {	
+export default function App() {
 	return (
 		<PaperProvider theme={PaperTheme}>
 			<AuthProvider>

@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { AuthContext } from '../provider/AuthProvider';
 
-import FormInput from '../components/common/FormInput';
-import FormButton from '../components/common/FormButton';
+import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton';
 
 export const SIGNUP_NAVTAG = 'SignUp';
 

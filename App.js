@@ -23,9 +23,9 @@ var defaultProject = firebase.apps.length > 0 ?
 
 // Import Providers and start routes
 import { Provider as PaperProvider } from 'react-native-paper';
-import { AuthProvider } from './provider/AuthProvider';
-import { PaperTheme } from './Theme';
-import Routes from './navigation/Routes';
+import { AuthProvider } from './src/provider/AuthProvider';
+import { PaperTheme } from './src/components/Theme';
+import Routes from './src/navigation/Routes';
 
 export default function App() {
 	return (

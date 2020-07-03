@@ -7,7 +7,7 @@ import {
     COLOR_SURFACE_TOP,
     COLOR_INACTIVE,
     COLOR_BORDER
- } from '../../Theme';
+ } from './Theme';
 
 export default function ThemedSearchBar({ ...props }) {
     return (

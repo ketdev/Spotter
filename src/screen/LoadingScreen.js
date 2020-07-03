@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
-import { COLOR_TEXT } from '../Theme';
+import { COLOR_TEXT } from '../components/Theme';
 
 export default function LoadingScreen() {
 	return (

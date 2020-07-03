@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { View, Title, Text, Button, StyleSheet } from 'react-native';
 import { Appbar } from 'react-native-paper';  
-import FormButton from '../components/common/FormButton';
-import FormInput from '../components/common/FormInput';
+import FormButton from '../components/FormButton';
+import FormInput from '../components/FormInput';
 
 import * as firebase from 'firebase';
 import "firebase/firestore";
 
-import IconChatboxOutline from '../assets/chatbox-ellipses-outline.svg';
-
-export const ADD_ROOM_NAVTAG = 'Add Room';
+import IconChatboxOutline from '../../assets/chatbox-ellipses-outline.svg';
 
 export default function AddRoomModal({ closeModal }) {
     const [roomName, setRoomName] = useState('');

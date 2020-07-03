@@ -4,9 +4,10 @@ import { Title, Subheading } from 'react-native-paper';
 
 import { AuthContext } from '../provider/AuthProvider';
 import { SIGNUP_NAVTAG } from './SignUpScreen';
-import FormInput from '../components/common/FormInput';
-import FormButton from '../components/common/FormButton';
-import SpotterTitle from "../assets/spotter-title.svg";
+import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton';
+
+import SpotterTitle from "../../assets/spotter-title.svg";
 
 
 export const LOGIN_NAVTAG = 'Login';

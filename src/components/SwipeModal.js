@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Modal, TouchableWithoutFeedback, StyleSheet } from 'react-native';
-import { COLOR_SURFACE } from '../../Theme';
+import { COLOR_SURFACE } from './Theme';
 
 export default function SwipeModal({ children, onClose, ...props }) {
     return (

@@ -1,0 +1,119 @@
+Authentication:
+    - Google / Facebook / Twitter Login
+    - Signup transition to edit profile screen
+
+Theme:
+    - add backgrounds and refine theme colors
+
+Functionality:
+    - Search filters
+
+Menu: (popover)
+    - Application Settings:
+        - Height Units: Centimeter/Inches
+        - Weight Units: Kilograms/Pounds
+        - (const) App Version
+        - (readonly) Terms & Conditions
+        - (readonly) Privacy Policy
+        - [Notifications]:
+            - Follow Requests (Push/Off)
+            - Follow Accepted (Push/Off)
+            - Direct Messages (Push/Off)
+    - Account Settings:
+        - Private/Public
+        - Show Age (off, default)
+        - Delete Account 
+    - Logout
+
+SelfProfile:
+    - Info:
+        - Action: Edit 
+        - User Name
+        - Display Name
+        - Gender
+        - Birthday
+        - Bio
+        - Fitness Interests 
+        - Gyms (Multiple gyms)
+        - Email
+        - Phone
+    - Social:
+        - Victories count 
+        - Followers count (click for list)
+        - Following count (click for list)
+    - Metrics:
+        - Action: Add Measurement 
+        - Weigth
+        - Height
+        - BMI
+        - (calculated) Monthly Average Weigth
+        - (calculated) Monthly Average BMI
+    - Strengths:
+        - (calculated) Legs, Arms, Back, Chest, Shoulders, Calves, ...
+
+Social Circle:
+    - Searchbar
+    - Followers
+    - Following
+
+OtherProfile:
+    - Actions: Follow, Message, Challenge
+    - Info (same, without email/phone)
+    - Social (same)
+    - Strengths (same)
+
+Gym:
+    - Location
+    - Opening times
+    - Busy hours
+
+=============================
+
+Program:
+    - Action: Create workout
+    - Searchbar
+    - [Recent Workouts]
+    - Your Workouts
+    - [Shared with you]
+    - [Featured/Trending]
+    - [Made for you]
+
+Workout:
+    - Action: Edit (Yours), [Customize/Duplicate]
+        - Add
+        - Edit
+        - [Rearrange]
+        - Remove
+    - Accumulated Type
+    - Listed Exercises & Sets& Reps
+
+Library:
+    - Searchbar
+    - Exercise:
+        - Name
+        - Image/[Video]
+        - Description
+        - Type: Cardio, Full Body, Upper Body, Arms, Butt, Abs & Core, Legs
+        - [Difficulty]: Basic, Intermediate, Tough
+        - [Equipment]: None, Dumbell, Bar, etc..
+
+=============================
+
+Search:
+    - Same gym listing
+    - All accounts search
+    
+=============================
+
+Ranking:
+    -
+
+=============================
+
+Notification:
+    - Types: Follow request, Challenges, [Suggestions]
+
+=============================
+
+Messages:
+    - ...

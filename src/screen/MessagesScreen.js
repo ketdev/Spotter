@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
-import { Text, List, Divider, Title } from 'react-native-paper';
-import FormInput from '../components/common/FormInput';
-import FormButton from '../components/common/FormButton';
-import SwipeModal from '../components/common/SwipeModal';
-import ThemedSearchBar from '../components/common/ThemedSearchbar';
+import React from 'react';
+import { View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { List, Divider, Title } from 'react-native-paper';
+import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton';
+import SwipeModal from '../components/SwipeModal';
+import ThemedSearchBar from '../components/ThemedSearchbar';
 import { AuthContext } from '../provider/AuthProvider';
 
-import LoadingScreen from '../screen/LoadingScreen';
+import LoadingScreen from './LoadingScreen';
 
-import AddRoomModal, { ADD_ROOM_NAVTAG } from '../modal/AddRoomModal';
-import IconChatboxOutline from '../assets/chatbox-ellipses-outline.svg';
+import AddRoomModal from '../modal/AddRoomModal';
+
+import { CHAT_NAVTAG } from './RoomScreen';
 
 import * as firebase from 'firebase';
 import "firebase/firestore";
@@ -18,17 +19,17 @@ import "firebase/firestore";
 export const MESSENGER_NAVTAG = 'Messenger';
 
 export default function MessagesScreen({ navigation }) {
-    const { user } = useContext(AuthContext);
-    const [modalVisible, setModalVisible] = useState(false);
+    const { user } = React.useContext(AuthContext);
+    const [modalVisible, setModalVisible] = React.useState(false);
     const [searchQuery, setSearchQuery] = React.useState('');
 
-    const [threads, setThreads] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [threads, setThreads] = React.useState([]);
+    const [loading, setLoading] = React.useState(true);
 
     const onChangeSearch = query => setSearchQuery(query);
     const onClose = () => setModalVisible(false);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const unsubscribe = firebase.firestore()
             .collection('THREADS')
             .onSnapshot(querySnapshot => {
@@ -40,19 +41,13 @@ export default function MessagesScreen({ navigation }) {
                         ...documentSnapshot.data()
                     };
                 });
-
-                console.log(threads);
-
                 setThreads(threads);
 
                 if (loading) {
                     setLoading(false);
                 }
             });
-
-        /**
-         * unsubscribe listener
-         */
+        // unsubscribe listener
         return () => unsubscribe();
     }, []);
 
@@ -70,21 +65,25 @@ export default function MessagesScreen({ navigation }) {
 
             <Title>All chat rooms will be listed here</Title>
             <Title>{user ? user.uid : ''}</Title>
-            
+
             <View style={styles.container}>
                 <FlatList
                     data={threads}
                     keyExtractor={item => item._id}
                     ItemSeparatorComponent={() => <Divider />}
                     renderItem={({ item }) => (
-                        <List.Item
-                            title={item.name}
-                            description='Item description'
-                            titleNumberOfLines={1}
-                            titleStyle={styles.listTitle}
-                            descriptionStyle={styles.listDescription}
-                            descriptionNumberOfLines={1}
-                        />
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate(CHAT_NAVTAG, { thread: item })}
+                        >
+                            <List.Item
+                                title={item.name}
+                                description='Item description'
+                                titleNumberOfLines={1}
+                                titleStyle={styles.listTitle}
+                                descriptionStyle={styles.listDescription}
+                                descriptionNumberOfLines={1}
+                            />
+                        </TouchableOpacity>
                     )}
                 />
             </View>
